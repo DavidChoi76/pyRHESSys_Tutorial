@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 	unzip \
 	nco
 
-pip install hs_restclient
+RUN pip install hs_restclient
 
 # Install GRASS 7.8.0
 RUN apt-get update && apt-get install -y \
