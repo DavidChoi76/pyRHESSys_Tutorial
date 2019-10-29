@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Install Ubuntu package for IRkernel
-RUN apt-get install libssl-dev libcurl4-openssl-dev
+# RUN apt-get install libssl-dev libcurl4-openssl-dev
 
 # Install R
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9  \
@@ -43,12 +43,12 @@ RUN R --slave -e 'install.packages("sp")'  \
     R --slave -e 'install.packages("stars")'  
 
 # Install required R packages for IRkernel https://github.com/IRkernel/IRkernel
-RUN R --slave -e 'install.packages("openssl")'  \
-    R --slave -e 'install.packages("curl")'  \
-    R --slave -e 'install.packages("httr")'  \
-    R --slave -e 'install.packages("devtools")' \
-    R --slave -e 'devtools::install_github("IRkernel/IRkernel")'  \
-    R --slave -e 'IRkernel::installspec()' 
+# RUN R --slave -e 'install.packages("openssl")'  \
+#    R --slave -e 'install.packages("curl")'  \
+#    R --slave -e 'install.packages("httr")'  \
+#    R --slave -e 'install.packages("devtools")' \
+#    R --slave -e 'devtools::install_github("IRkernel/IRkernel")'  \
+#    R --slave -e 'IRkernel::installspec()' 
 
 
 USER $NB_USER
