@@ -10,8 +10,7 @@ USER root
 RUN apt-get update && apt-get install -y \
 	vim \
 	zip \
-	unzip \
-	nco
+	unzip 
 
 RUN pip install hs_restclient
 
@@ -25,7 +24,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Install Ubuntu package for IRkernel
-# RUN apt-get install libssl-dev libcurl4-openssl-dev
+RUN apt-get install libssl-dev libcurl4-openssl-dev
 
 # Install R
 RUN apt-get update && apt-get install -y r-base
