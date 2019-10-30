@@ -80,8 +80,8 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
 
 ENV PATH /root/anaconda3/bin:$PATH
 ENV GISBASE /usr/lib/grass78
-ENV PYTHONPATH ${PYTHON-PATH}:$GISBASE/etc/python/
-ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:$GISBASE/lib
+#ENV PYTHONPATH ${PYTHON-PATH}:$GISBASE/etc/python/
+#ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:$GISBASE/lib
 ENV GIS_LOCK $$
 ENV GISRC $HOME/.grass7/rc	
 	
