@@ -1,7 +1,8 @@
 # Copyright (C) Young-Don Choi.
 # Distributed under the terms of the BSD 2-Clause License.
 
-FROM jupyter/scipy-notebook:1386e2046833
+#FROM jupyter/scipy-notebook:1386e2046833
+From: ubuntu:18.04
 
 MAINTAINER Young-Don Choi <choiyd1115@gmail.com>
 
