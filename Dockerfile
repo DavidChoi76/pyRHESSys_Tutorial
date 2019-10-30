@@ -12,9 +12,10 @@ USER root
 RUN apt-get update && apt-get install -y \
 	vim \
 	zip \
-	unzip 
+	unzip \
+	install python3-pip
 
-RUN pip install hs_restclient
+RUN pip3 install hs_restclient
 
 # Install GRASS 7.8.0
 RUN apt-get update && apt-get install -y \
