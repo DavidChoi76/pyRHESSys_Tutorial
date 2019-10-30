@@ -12,9 +12,11 @@ USER root
 RUN apt-get update && apt-get install -y \
 	vim \
 	zip \
-	unzip 
+	unzip \
+	python3.7 \
+        python3-pip
 
-#RUN pip3 install hs_restclient
+RUN pip3 install hs_restclient
 
 # Install GRASS 7.8.0
 RUN apt-get update && apt-get install -y \
@@ -26,7 +28,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Install Ubuntu package for IRkernel
-RUN apt-get install libssl-dev libcurl4-openssl-dev
+#RUN apt-get install libssl-dev libcurl4-openssl-dev
 
 # Install R
 RUN apt-get update && apt-get install -y r-base
