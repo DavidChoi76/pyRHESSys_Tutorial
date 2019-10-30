@@ -6,7 +6,7 @@ FROM ubuntu:18.04
 
 MAINTAINER Young-Don Choi <choiyd1115@gmail.com>
 
-USER root
+#USER root
 
 RUN apt-get -y update 
 RUN apt -y install vim nano wget software-properties-common apt-transport-https
@@ -26,10 +26,10 @@ RUN apt -y install build-essential git subversion p7zip-full libxml2-dev libxslt
 RUN apt -y install libssl-dev libcurl4-openssl-dev
 
 # Install Anaconda3
-RUN wget https://repo.continuum.io/archive/Anaconda3-2019.03-Linux-x86_64.sh
-RUN bash Anaconda3-2019.03-Linux-x86_64.sh -b
-RUN rm Anaconda3-2019.03-Linux-x86_64.sh
-ENV PATH /root/anaconda3/bin:$PATH
+#RUN wget https://repo.continuum.io/archive/Anaconda3-2019.03-Linux-x86_64.sh
+#RUN bash Anaconda3-2019.03-Linux-x86_64.sh -b
+#RUN rm Anaconda3-2019.03-Linux-x86_64.sh
+#ENV PATH /root/anaconda3/bin:$PATH
 
 # Don't print "debconf: unable to initialize frontend: Dialog" messages
 ARG DEBIAN_FRONTEND=noninteractive
