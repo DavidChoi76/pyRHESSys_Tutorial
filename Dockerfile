@@ -11,10 +11,10 @@ USER root
 RUN apt-get -y update 
 RUN apt -y install vim nano wget software-properties-common apt-transport-https
 RUN apt-get update && apt-get install -y \
-	vim \
-	zip \
-	unzip \
-	python3.7 \
+    vim \
+    zip \
+    unzip \
+    python3.7 \
     python3-pip
 
 RUN pip3 install hs_restclient
@@ -46,8 +46,8 @@ RUN apt-get update && apt-get install -y r-base
 
 RUN apt-get update && apt-get install -y \
     r-base \
-	r-base-dev \
-	locales 
+    r-base-dev \
+    locales 
 
 # Configure default locale, see https://github.com/rocker-org/rocker/issues/19	
 RUN locale-gen en_US.utf8 \
@@ -56,8 +56,7 @@ ENV LANG=en_US.UTF-8
 
 # Install GRASS 7.8.0	
 RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable  
-    #apt-get update  \
-RUN apt-get install -y grass grass-dev 
+RUN apt-get install -y grass grass-dev
 RUN apt-get install -y libgdal-dev libproj-dev	
 
 # Install required R packages
@@ -69,12 +68,12 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
     Rscript -e "install.packages('units')"  \
     Rscript -e "install.packages('sf')"  \
     Rscript -e "install.packages('stars')" \
-	Rscript -e "install.packages('openssl')" \
-	Rscript -e "install.packages('curl')" \
-	Rscript -e "install.packages('httr')" \
-	Rscript -e "install.packages('devtools')" \
-	Rscript -e "devtools::install_github("IRkernel/IRkernel")"  \
-	Rscript -e "IRkernel::installspec()"
+    Rscript -e "install.packages('openssl')" \
+    Rscript -e "install.packages('curl')" \
+    Rscript -e "install.packages('httr')" \
+    Rscript -e "install.packages('devtools')" \
+    Rscript -e "devtools::install_github("IRkernel/IRkernel")"  \
+    Rscript -e "IRkernel::installspec()"
 
 
 
