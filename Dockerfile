@@ -3,21 +3,16 @@
 # Distributed under the terms of the BSD 2-Clause License.
 
 #FROM jupyter/scipy-notebook:1386e2046833
-<<<<<<< HEAD
 
-=======
 #Bootstrap: docker
->>>>>>> cabac933eb567a20f4560f9ec41e0998cede66a2
 FROM ubuntu:18.04
 
 MAINTAINER Young-Don Choi <choiyd1115@gmail.com>
 
 USER root
 
-<<<<<<< HEAD
 RUN apt-get -y update 
 RUN apt -y install vim nano wget software-properties-common apt-transport-https
-=======
 RUN apt-get update && apt-get install -y \
 	vim \
 	zip \
@@ -26,13 +21,11 @@ RUN apt-get update && apt-get install -y \
         python3-pip
 
 RUN pip3 install hs_restclient
->>>>>>> cabac933eb567a20f4560f9ec41e0998cede66a2
 
 # Install Ubuntu package for RHESSysWorkflows
 RUN apt -y install build-essential git subversion p7zip-full libxml2-dev libxslt-dev libbsd-dev ffmpeg vlc libudunits2-dev
 
 # Install Ubuntu package for IRkernel
-<<<<<<< HEAD
 RUN apt -y install libssl-dev libcurl4-openssl-dev
 
 #RUN wget https://repo.continuum.io/archive/Anaconda3-2019.07-Linux-x86_64.sh -O ~/anaconda.sh && \
@@ -66,7 +59,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD5
 RUN add-apt-repository "deb http://cran.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran35/" 
     #apt-get update \
     #DEBIAN_FRONTEND=noninteractive apt-get -y install r-base
-=======
+
 #RUN apt-get install libssl-dev libcurl4-openssl-dev
 
 # Install R
@@ -75,7 +68,7 @@ RUN apt-get update && apt-get install -y r-base
     #add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'  \
     #apt-get update  \
     #DEBIAN_FRONTEND=noninteractive apt-get -y install r-base r-base-dev
->>>>>>> cabac933eb567a20f4560f9ec41e0998cede66a2
+
 
 RUN apt-get update && apt-get install -y \
     r-base \
@@ -119,7 +112,7 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
 #    R --slave -e 'install.packages("stars")'
 
 # Install required R packages for IRkernel https://github.com/IRkernel/IRkernel
-<<<<<<< HEAD
+
 #RUN Rscript -e "install.packages('openssl')" 
 #RUN Rscript -e "install.packages('curl')"  
 #RUN Rscript -e "install.packages('httr')"  
@@ -156,7 +149,6 @@ ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:$GISBASE/lib
 ENV GIS_LOCK $$
 ENV GISRC $HOME/.grass7/rc	
 	
-=======
 # RUN R --slave -e 'install.packages("openssl")'  \
 #    R --slave -e 'install.packages("curl")'  \
 #    R --slave -e 'install.packages("httr")'  \
@@ -183,4 +175,3 @@ COPY notebooks/* ./
 USER root
 RUN chown -R $NB_USER:users .
 USER $NB_USER
->>>>>>> cabac933eb567a20f4560f9ec41e0998cede66a2
