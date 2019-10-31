@@ -2,7 +2,6 @@ FROM ubuntu:18.04
 
 MAINTAINER Young-Don Choi <choiyd1115@gmail.com>
 
-USER root
 # install only the packages that are needed
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -31,7 +30,13 @@ RUN apt-get update && \
     libssl-dev \
     libcurl4-openssl-dev
 
-RUN apt-get install -y dirmngr
+# Install Anaconda3
+RUN wget https://repo.continuum.io/archive/Anaconda3-2019.03-Linux-x86_64.sh
+RUN bash Anaconda3-2019.03-Linux-x86_64.sh -b
+RUN rm Anaconda3-2019.03-Linux-x86_64.sh
+ENV PATH /opt/conda/bin:$PATH
+
+#RUN apt-get install -y dirmngr
 # Install R	
 RUN apt install apt-transport-https software-properties-common 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
