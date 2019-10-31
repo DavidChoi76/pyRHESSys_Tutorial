@@ -31,7 +31,7 @@ RUN apt-get update && \
     libssl-dev \
     libcurl4-openssl-dev
 
-RUN apt-get install dirmngr
+RUN apt-get install -y dirmngr
 # Install R	
 RUN apt install apt-transport-https software-properties-common 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
