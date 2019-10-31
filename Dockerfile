@@ -34,7 +34,8 @@ RUN apt-get update && \
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 RUN add-apt-repository "deb http://cran.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran35/"
 RUN add-apt update
-ARG DEBIAN_FRONTEND=noninteractive apt-get -y install r-base r-base-dev
+ARG DEBIAN_FRONTEND=noninteractive 
+RUN apt-get -y install r-base r-base-dev
 
 # Configure default locale, see https://github.com/rocker-org/rocker/issues/19	
 RUN locale-gen en_US.utf8 \
