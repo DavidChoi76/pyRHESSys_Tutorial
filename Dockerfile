@@ -31,11 +31,11 @@ RUN apt-get update && \
     libcurl4-openssl-dev
 
 # Install R	
-RUN apt-get update && apt-get -y install --no-install-recommends --no-install-suggests \
-        ca-certificates software-properties-common gnupg2 gnupg1 \
-      && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
-      && add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/' \
-      && apt-get install r-base r-base-dev
+RUN install apt-transport-https software-properties-common 
+RUN install apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 
+RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/' 
+RUN apt-get update 
+RUN apt-get install r-base r-base-dev
 
 #RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 #RUN add-apt-repository "deb http://cran.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran35/"
