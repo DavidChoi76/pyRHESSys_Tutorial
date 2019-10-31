@@ -56,6 +56,30 @@ RUN apt-get update && apt-get install -y \
     && apt-get autoremove \
     && apt-get clean
 
+# Install required R packages
+RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile  \
+    Rscript -e "install.packages('sp')"  \
+    Rscript -e "install.packages('XML')"  \
+    Rscript -e "install.packages('rgdal')"  \
+    Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/rgrass7/rgrass7_0.1-12.tar.gz", repo=NULL, type="source')"  \
+    Rscript -e "install.packages('units')"  \
+    Rscript -e "install.packages('sf')"  \
+    Rscript -e "install.packages('stars')" \
+    Rscript -e "install.packages('openssl')" \
+    Rscript -e "install.packages('curl')" \
+    Rscript -e "install.packages('httr')" \
+    Rscript -e "install.packages('devtools')" \
+    Rscript -e "devtools::install_github("IRkernel/IRkernel")"  \
+    Rscript -e "IRkernel::installspec()"
+
+RUN pip3 install --no-cache --upgrade pip && \
+    pip3 install --no-cache notebook  && \
+    pip3 install --upgrade pip  && \
+    pip3 install hs_restclient  && \
+    pip3 install simpledbf  && \
+    pip3 install wget  && \
+    pip3 install pandas
+
 #RUN apt-get update && apt-get -y install --no-install-recommends --no-install-suggests \
 #        ca-certificates software-properties-common gnupg2 gnupg1 \
 #      && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
