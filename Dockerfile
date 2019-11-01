@@ -65,9 +65,6 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
 RUN R -e "install.packages('sp',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('XML',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('rgdal',dependencies=TRUE, repos='http://cran.rstudio.com/')"
-#ARG packageUrl = "https://cran.r-project.org/src/contrib/Archive/rgrass7/rgrass7_0.1-12.tar.gz"
-#RUN Rscript -e "install.packages("https://cran.r-project.org/src/contrib/Archive/rgrass7/rgrass7_0.1-12.tar.gz", repos=NULL, type="source")"
-#RUN R -e "install.packages('rgrass7_0.1-12.tar.gz", repo=NULL, type="source',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('remotes'); \
   remotes::install_version('rgrass7', '0.1-12')"
 RUN R -e "install.packages('units',dependencies=TRUE, repos='http://cran.rstudio.com/')"
@@ -77,8 +74,6 @@ RUN R -e "install.packages('openssl',dependencies=TRUE, repos='http://cran.rstud
 RUN R -e "install.packages('curl',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('httr',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('openssl',dependencies=TRUE, repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('openssl',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN Rscript -e "devtools::install_github("IRkernel/IRkernel")" 
 RUN Rscript -e "IRkernel::installspec()"
 
