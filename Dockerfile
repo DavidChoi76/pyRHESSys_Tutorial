@@ -74,7 +74,7 @@ RUN R -e "install.packages('openssl',dependencies=TRUE, repos='http://cran.rstud
 RUN R -e "install.packages('curl',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('httr',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstudio.com/')"
-RUN Rscript -e "devtools::install_github("IRkernel/IRkernel")" 
+RUN Rscript -e "install_github("IRkernel/IRkernel")" 
 RUN Rscript -e "IRkernel::installspec()"
 
 RUN pip3 install --upgrade pip setuptools wheel 
