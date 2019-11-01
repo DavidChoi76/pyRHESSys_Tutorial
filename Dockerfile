@@ -38,56 +38,26 @@ ENV PATH /opt/conda/bin:$PATH
 
 # Install R	
 ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get update \ 
-	&& apt-get install -y --no-install-recommends \
-	    apt-utils \
-		ed \
-		less \
-		locales \
-		vim-tiny \
-		wget \
-		ca-certificates \
-		apt-transport-https \
-		gsfonts \
-		gnupg2 \
-	&& rm -rf /var/lib/apt/lists/*
-
-# Configure default locale, see https://github.com/rocker-org/rocker/issues/19
-RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
-	&& locale-gen en_US.utf8 \
-	&& /usr/sbin/update-locale LANG=en_US.UTF-8
-
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-
-RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" > /etc/apt/sources.list.d/cran.list
-
-# note the proxy for gpg
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-
-ENV R_BASE_VERSION 3.6.1
-
-# Now install R and littler, and create a link for littler in /usr/local/bin
-# Also set a default CRAN repo, and make sure littler knows about it too
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
-		littler \
-        r-cran-littler \
-		r-base=${R_BASE_VERSION}* \
-		r-base-dev=${R_BASE_VERSION}* \
-		r-recommended=${R_BASE_VERSION}* \
-        && echo 'options(repos = c(CRAN = "https://cloud.r-project.org/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site \
-        && echo 'source("/etc/R/Rprofile.site")' >> /etc/littler.r \
-	&& ln -s /usr/share/doc/littler/examples/install.r /usr/local/bin/install.r \
-	&& ln -s /usr/share/doc/littler/examples/install2.r /usr/local/bin/install2.r \
-	&& ln -s /usr/share/doc/littler/examples/installGithub.r /usr/local/bin/installGithub.r \
-	&& ln -s /usr/share/doc/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r \
-	&& install.r docopt \
-	&& rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
-	&& rm -rf /var/lib/apt/lists/*
-
-RUN apt-get-y install r-base-dev
+RUN apt-get update
+RUN apt-get -y install apt-utils
+RUN apt-get -y install build-essential
+RUN apt-get -y install bzip2
+RUN apt-get -y install file
+RUN apt-get -y install gettext
+RUN apt-get -y install libbz2-dev
+RUN apt-get -y install libcurl4-gnutls-dev
+RUN apt-get -y install libgnutls-dev
+RUN apt-get -y install libldap2-dev
+RUN apt-get -y install libncurses-dev
+RUN apt-get -y install libreadline-dev
+RUN apt-get -y install libsqlite3-dev
+RUN apt-get -y install libtinfo-dev
+RUN apt-get -y install libusb-dev
+RUN apt-get -y install pkg-config
+RUN apt-get -y install sqlite3
+RUN apt-get -y install texinfo
+RUN apt-get -y install wget
+RUN apt-get -y install zlib1g-dev
  
 #RUN apt install apt-transport-https software-properties-common 
 #RUN gpg --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
@@ -95,16 +65,16 @@ RUN apt-get-y install r-base-dev
 #RUN apt-get update 
 #RUN apt-get install r-base r-base-dev
 
-#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-#RUN add-apt-repository "deb http://cran.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran35/"
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+RUN add-apt-repository "deb http://cran.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran35/"
 #RUN add-apt update
 #ARG DEBIAN_FRONTEND=noninteractive 
-#RUN apt-get -y install r-base r-base-dev
+RUN apt-get -y install r-base r-base-dev
 
 # Configure default locale, see https://github.com/rocker-org/rocker/issues/19	
-#RUN locale-gen en_US.utf8 \
-#    && /usr/sbin/update-locale LANG=en_US.UTF-8
-#ENV LANG=en_US.UTF-8
+RUN locale-gen en_US.utf8 \
+    && /usr/sbin/update-locale LANG=en_US.UTF-8
+ENV LANG=en_US.UTF-8
 
 RUN apt-get update && apt-get install -y \
     software-properties-common curl \
