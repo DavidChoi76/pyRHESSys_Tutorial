@@ -45,8 +45,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install r-base r-base-dev
 
 # Configure default locale, see https://github.com/rocker-org/rocker/issues/19	
+RUN apt-get update && apt-get install -y \
+    locales
 
-RUN apt-get locales
 RUN locale-gen en_US.utf8 \
     && /usr/sbin/update-locale LANG=en_US.UTF-8
 ENV LANG=en_US.UTF-8
