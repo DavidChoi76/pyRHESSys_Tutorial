@@ -76,6 +76,9 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
     Rscript -e "devtools::install_github("IRkernel/IRkernel")"  \
     Rscript -e "IRkernel::installspec()"
 
+RUN apt-get python3 \
+            python3-pip
+
 RUN pip3 install --no-cache notebook  && \
     pip3 install --upgrade pip  && \
     pip3 install hs_restclient  && \
