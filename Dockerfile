@@ -36,7 +36,8 @@ RUN bash Anaconda3-2019.03-Linux-x86_64.sh -b
 RUN rm Anaconda3-2019.03-Linux-x86_64.sh
 ENV PATH /opt/conda/bin:$PATH
 
-# RUN apt-get install -y dirmngr
+RUN apt-get install -y dirmngr
+RUN apt-get update
 # Install R	
 RUN apt install apt-transport-https software-properties-common 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --no-tty --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
