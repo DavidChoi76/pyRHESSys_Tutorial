@@ -37,7 +37,7 @@ RUN rm Anaconda3-2019.03-Linux-x86_64.sh
 ENV PATH /opt/conda/bin:$PATH
 
 # Install R	
-RUN apt-get install dirmngr --install-recommends
+RUN apt-get -y install dirmngr --install-recommends
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 RUN add-apt-repository "deb http://cran.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran35/"
