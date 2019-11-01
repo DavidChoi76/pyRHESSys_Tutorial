@@ -4,7 +4,7 @@
 
 This GitHub repository developed to simulate RHESsys Model as an example of Coweeta subwatershed 18, NC, USA.
 
-Browse the notebooks on GitHub or try out RHESsys Model Simulation with a brief interactive tutorial by clicking the Launch Binder button above. It will launch a "Binder" application using the code in this repository.
+Try out RHESsys Model Simulation with a brief interactive tutorial by clicking the Launch Binder button above. It will launch a "Binder" application using the code in this repository.
 
 When JupyterHub starts, you can find "rhessys_example_download.ipynb".
 1) Open "rhessys_example_download.ipynb" notebook and execute codes.
