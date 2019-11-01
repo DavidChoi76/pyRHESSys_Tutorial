@@ -40,11 +40,13 @@ ENV PATH /opt/conda/bin:$PATH
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \ 
+	&& apt-get install -y --no-install-recommends \
 	    apt-utils \
 		ed \
 		less \
 		locales \
 		vim-tiny \
+		wget \
 		ca-certificates \
 		apt-transport-https \
 		gsfonts \
