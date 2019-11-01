@@ -73,7 +73,7 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
     Rscript -e "install.packages('curl')" \
     Rscript -e "install.packages('httr')" \
     Rscript -e "install.packages('devtools')" \
-    Rscript -e "devtools::install_github("IRkernel/IRkernel")"  \
+    Rscript -e "install_github("IRkernel/IRkernel")"  \
     Rscript -e "IRkernel::installspec()"
 
 #RUN apt-get update && \
