@@ -37,32 +37,7 @@ RUN rm Anaconda3-2019.03-Linux-x86_64.sh
 ENV PATH /opt/conda/bin:$PATH
 
 # Install R	
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update
-RUN apt-get -y install apt-utils
-RUN apt-get -y install build-essential
-RUN apt-get -y install bzip2
-RUN apt-get -y install file
-RUN apt-get -y install gettext
-RUN apt-get -y install libbz2-dev
-RUN apt-get -y install libcurl4-gnutls-dev
-RUN apt-get -y install libldap2-dev
-RUN apt-get -y install libncurses-dev
-RUN apt-get -y install libreadline-dev
-RUN apt-get -y install libsqlite3-dev
-RUN apt-get -y install libtinfo-dev
-RUN apt-get -y install libusb-dev
-RUN apt-get -y install pkg-config
-RUN apt-get -y install sqlite3
-RUN apt-get -y install texinfo
-RUN apt-get -y install wget
-RUN apt-get -y install zlib1g-dev
- 
-#RUN apt install apt-transport-https software-properties-common 
-#RUN gpg --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-#RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/' 
-#RUN apt-get update 
-#RUN apt-get install r-base r-base-dev
+RUN apt-get install dirmngr --install-recommends
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 RUN add-apt-repository "deb http://cran.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran35/"
