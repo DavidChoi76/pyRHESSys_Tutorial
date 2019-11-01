@@ -66,8 +66,10 @@ RUN R -e "install.packages('sp',dependencies=TRUE, repos='http://cran.rstudio.co
 RUN R -e "install.packages('XML',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('rgdal',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 #ARG packageUrl = "https://cran.r-project.org/src/contrib/Archive/rgrass7/rgrass7_0.1-12.tar.gz"
-RUN Rscript -e "install.packages("https://cran.r-project.org/src/contrib/Archive/rgrass7/rgrass7_0.1-12.tar.gz", repos=NULL, type="source")"
+#RUN Rscript -e "install.packages("https://cran.r-project.org/src/contrib/Archive/rgrass7/rgrass7_0.1-12.tar.gz", repos=NULL, type="source")"
 #RUN R -e "install.packages('rgrass7_0.1-12.tar.gz", repo=NULL, type="source',dependencies=TRUE, repos='http://cran.rstudio.com/')"
+RUN R -e "install.packages('remotes'); \
+  remotes::install_version('rgrass7', '0.1-12')"
 RUN R -e "install.packages('units',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('sf',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('stars',dependencies=TRUE, repos='http://cran.rstudio.com/')"
