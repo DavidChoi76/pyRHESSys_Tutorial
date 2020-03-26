@@ -85,6 +85,7 @@ RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstu
 
 #RUN pip3 install --upgrade pip setuptools wheel 
 #RUN pip3 install setuptools_conda
+
 RUN git clone https://github.com/DavidChoi76/pyRHESSys.git
 #RUN conda env create -f environment.yml
 RUN cd pyRHESSys && conda env create -f environment.yml
@@ -98,7 +99,7 @@ RUN cd pyRHESSys && conda env create -f environment.yml
 
 # create user with a home directory
 # ARG NB_USER
-A# RG NB_UID
+# RG NB_UID
 # ENV USER ${NB_USER}
 # ENV HOME /home/${NB_USER}
 
