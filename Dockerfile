@@ -77,10 +77,11 @@ RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstu
 #RUN Rscript -e "install_github("IRkernel/IRkernel")" 
 #RUN Rscript -e "IRkernel::installspec()"
 
-RUN pip3 install --upgrade pip setuptools wheel 
-RUN pip3 install setuptools_conda
+#RUN pip3 install --upgrade pip setuptools wheel 
+#RUN pip3 install setuptools_conda
 RUN git clone https://github.com/DavidChoi76/pyRHESSys.git
-RUN cd pyRHESSys && conda install .
+#RUN conda env create -f environment.yml
+RUN cd pyRHESSys && conda env create -f environment.yml
 
 RUN pip3 install --upgrade pip setuptools wheel 
 RUN pip3 install --no-cache notebook  && \
