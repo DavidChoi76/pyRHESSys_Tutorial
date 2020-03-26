@@ -86,8 +86,7 @@ RUN pip3 install --no-cache notebook  && \
     pip3 install --upgrade pip  && \
     pip3 install hs_restclient  && \
     pip3 install simpledbf  && \
-    pip3 install wget  && \
-    pip3 install pandas
+    pip3 install wget
 
 # create user with a home directory
 ARG NB_USER
