@@ -78,6 +78,10 @@ RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstu
 #RUN Rscript -e "IRkernel::installspec()"
 
 RUN pip3 install --upgrade pip setuptools wheel 
+RUN git clone https://github.com/DavidChoi76/pyRHESSys.git
+RUN cd pyRHESSys && pip3 install .
+
+RUN pip3 install --upgrade pip setuptools wheel 
 RUN pip3 install --no-cache notebook  && \
     pip3 install --upgrade pip  && \
     pip3 install hs_restclient  && \
