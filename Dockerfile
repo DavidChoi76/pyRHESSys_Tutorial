@@ -98,16 +98,16 @@ RUN cd pyRHESSys && conda env create -f environment.yml
 #    pip3 install wget
 
 # create user with a home directory
-# ARG NB_USER
-# RG NB_UID
-# ENV USER ${NB_USER}
-# ENV HOME /home/${NB_USER}
+ARG NB_USER
+RG NB_UID
+ENV USER ${NB_USER}
+ENV HOME /home/${NB_USER}
 
-# RUN adduser --disabled-password \
-#     --gecos "Default user" \
-#     --uid ${NB_UID} \
-#     ${NB_USER}
-# WORKDIR ${HOME}
-# USER ${USER}
+RUN adduser --disabled-password \
+     --gecos "Default user" \
+     --uid ${NB_UID} \
+     ${NB_USER}
+WORKDIR ${HOME}
+USER ${USER}
 
-# COPY notebooks/* ./
+COPY notebooks/* ./
