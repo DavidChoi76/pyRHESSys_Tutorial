@@ -99,7 +99,7 @@ RUN cd pyRHESSys && conda env create -f environment.yml
 
 # create user with a home directory
 ARG NB_USER
-RG NB_UID
+ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
