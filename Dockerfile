@@ -41,10 +41,10 @@ ENV PATH /root/anaconda3/bin:$PATH
 RUN conda update conda
 RUN conda update anaconda
 RUN conda update --all
-#RUN conda install -c conda-forge cartopy
-#RUN conda install -c conda-forge holoviews
-#RUN conda install -c bokeh bokeh
-#RUN conda install -c conda-forge geoviews
+RUN conda install -c conda-forge cartopy
+RUN conda install -c conda-forge holoviews
+RUN conda install -c bokeh bokeh
+RUN conda install -c conda-forge geoviews
 
 # Install R	
 RUN apt-get -y install dirmngr --install-recommends
