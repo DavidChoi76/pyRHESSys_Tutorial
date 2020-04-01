@@ -88,16 +88,16 @@ RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstu
 # Install pyRHESSys
 RUN pip3 install --upgrade pip setuptools wheel 
 RUN git clone https://github.com/DavidChoi76/pyRHESSys.git
-RUN cd pyRHESSys && pip3 install .
+RUN cd pyRHESSys && pip install .
 #RUN conda env create -f environment.yml
 #RUN cd pyRHESSys && conda env create -f environment.yml
 
-RUN pip3 install --upgrade pip setuptools wheel 
-RUN pip3 install --no-cache notebook  && \
-    pip3 install --upgrade pip  && \
-    pip3 install hs_restclient  && \
-    pip3 install simpledbf  && \
-    pip3 install wget
+RUN pip install --upgrade pip setuptools wheel 
+RUN pip install --no-cache notebook  && \
+    pip install --upgrade pip  && \
+    pip install hs_restclient  && \
+    pip install simpledbf  && \
+    pip install wget
 
 # create user with a home directory
 ARG NB_USER
