@@ -110,4 +110,4 @@ RUN adduser --disabled-password \
 WORKDIR ${HOME}
 USER ${USER}
 
-COPY notebook/* ./
+COPY notebooks/* ./
