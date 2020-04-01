@@ -86,7 +86,7 @@ RUN R -e "install.packages('httr',dependencies=TRUE, repos='http://cran.rstudio.
 RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
 # Install pyRHESSys
-RUN /opt/conda/bin/pip install --upgrade pip setuptools wheel    && \
+RUN opt/conda/bin/pip install --upgrade pip setuptools wheel    && \
     git clone https://github.com/uva-hydroinformatics/pyRHESSys.git   && \
     cd pyRHESSys && /opt/conda/bin/pip install .
 #RUN conda env create -f environment.yml
