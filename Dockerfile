@@ -86,19 +86,17 @@ RUN R -e "install.packages('httr',dependencies=TRUE, repos='http://cran.rstudio.
 RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
 # Install pyRHESSys
-RUN pip3 install --upgrade pip setuptools wheel   && \
-    git clone https://github.com/uva-hydroinformatics/pyRHESSys.git   && \
-    cd pyRHESSys && pip3 install .
+#RUN pip3 install --upgrade pip setuptools wheel   && \
+#    git clone https://github.com/uva-hydroinformatics/pyRHESSys.git   && \
+#    cd pyRHESSys && pip3 install .
 #RUN conda env create -f environment.yml
 #RUN cd pyRHESSys && conda env create -f environment.yml
 
-#RUN pip install simpledbf  && \
-#    pip install wget && \
-#RUN pip3 install --upgrade pip setuptools wheel
-#RUN pip3 install --no-cache --upgrade pip && \
-#    pip3 install --no-cache notebook
-#RUN conda install -c anaconda setuptools
-#RUN conda install -c conda-forge jupyterlab
+RUN conda install -c conda-forge cartopy
+RUN conda install -c conda-forge holoviews
+RUN conda install -c bokeh bokeh
+RUN conda install -c conda-forge geoviews
+
 RUN pip3 install --upgrade pip setuptools wheel 
 RUN pip3 install --no-cache notebook  && \
     pip3 install --upgrade pip  && \
