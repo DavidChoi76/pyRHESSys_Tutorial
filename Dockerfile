@@ -86,9 +86,9 @@ RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstu
 
 RUN pip3 install --upgrade pip setuptools wheel 
 RUN pip3 install setuptools_conda
-RUN apt-get -y install libgeos++-dev
+#RUN apt-get -y install libgeos++-dev
 
-RUN git clone https://github.com/uva-hydroinformatics/pyRHESSys.git
+RUN git clone https://github.com/DavidChoi76/pyRHESSys.git
 RUN cd pyRHESSys && pip3 install .
 #RUN conda env create -f environment.yml
 #RUN cd pyRHESSys && conda env create -f environment.yml
