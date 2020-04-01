@@ -92,10 +92,10 @@ RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstu
 #RUN conda env create -f environment.yml
 #RUN cd pyRHESSys && conda env create -f environment.yml
 
-RUN pip install simpledbf  && \
-    pip install wget && \
-    pip install --upgrade pip && \
-    pip install --no-cache notebook 
+#RUN pip install simpledbf  && \
+#    pip install wget && \
+#    pip install --upgrade pip && \
+#    pip install --no-cache notebook 
 
 # create user with a home directory
 ARG NB_USER
