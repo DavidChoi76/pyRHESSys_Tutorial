@@ -86,7 +86,7 @@ RUN R -e "install.packages('httr',dependencies=TRUE, repos='http://cran.rstudio.
 RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
 # Install pyRHESSys
-#RUN pip3 install --upgrade pip setuptools wheel 
+RUN pip3 install --upgrade pip setuptools wheel 
 RUN git clone https://github.com/DavidChoi76/pyRHESSys.git
 RUN cd pyRHESSys && pip3 install .
 #RUN conda env create -f environment.yml
