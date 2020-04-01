@@ -88,7 +88,7 @@ RUN pip3 install --upgrade pip setuptools wheel
 RUN pip3 install setuptools_conda
 
 RUN git clone https://github.com/DavidChoi76/pyRHESSys.git
-RUN cd pyRHESSys && pip3 install .
+RUN cd pyRHESSys && pip install .
 #RUN conda env create -f environment.yml
 #RUN cd pyRHESSys && conda env create -f environment.yml
 
