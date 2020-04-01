@@ -86,9 +86,9 @@ RUN R -e "install.packages('httr',dependencies=TRUE, repos='http://cran.rstudio.
 RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
 # Install pyRHESSys
-#RUN pip install --upgrade pip setuptools wheel    && \
-#    git clone https://github.com/uva-hydroinformatics/pyRHESSys.git   && \
-#    cd pyRHESSys && pip install .
+RUN pip3 install --upgrade pip setuptools wheel   && \
+    git clone https://github.com/uva-hydroinformatics/pyRHESSys.git   && \
+    cd pyRHESSys && pip3 install .
 #RUN conda env create -f environment.yml
 #RUN cd pyRHESSys && conda env create -f environment.yml
 
@@ -102,10 +102,8 @@ RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstu
 RUN pip3 install --upgrade pip setuptools wheel 
 RUN pip3 install --no-cache notebook  && \
     pip3 install --upgrade pip  && \
-    pip3 install hs_restclient  && \
     pip3 install simpledbf  && \
-    pip3 install wget  && \
-    pip3 install pandas
+    pip3 install wget  
 
 
 # create user with a home directory
