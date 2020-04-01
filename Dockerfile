@@ -94,8 +94,8 @@ RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstu
 
 #RUN pip install simpledbf  && \
 #    pip install wget && \
-#    pip install --upgrade pip && \
-#    pip install --no-cache notebook 
+RUN pip3 install --no-cache --upgrade pip && \
+    pip3 install --no-cache notebook
 
 # create user with a home directory
 ARG NB_USER
