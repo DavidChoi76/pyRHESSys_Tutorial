@@ -38,13 +38,13 @@ ENV PATH /opt/conda/bin:$PATH
 ENV PATH /root/anaconda3/bin:$PATH
 
 # Updating Anaconda packages
-RUN conda update conda
-RUN conda update anaconda
-RUN conda update --all
-RUN conda install -c conda-forge cartopy
-RUN conda install -c conda-forge holoviews
-RUN conda install -c bokeh bokeh
-RUN conda install -c conda-forge geoviews
+#RUN conda update conda
+#RUN conda update anaconda
+#RUN conda update --all
+#RUN conda install -c conda-forge cartopy
+#RUN conda install -c conda-forge holoviews
+#RUN conda install -c bokeh bokeh
+#RUN conda install -c conda-forge geoviews
 
 # Install R	
 RUN apt-get -y install dirmngr --install-recommends
@@ -97,8 +97,16 @@ RUN R -e "install.packages('devtools',dependencies=TRUE, repos='http://cran.rstu
 #RUN pip3 install --upgrade pip setuptools wheel
 #RUN pip3 install --no-cache --upgrade pip && \
 #    pip3 install --no-cache notebook
-RUN conda install -c anaconda setuptools
-RUN conda install -c conda-forge jupyterlab
+#RUN conda install -c anaconda setuptools
+#RUN conda install -c conda-forge jupyterlab
+RUN pip3 install --upgrade pip setuptools wheel 
+RUN pip3 install --no-cache notebook  && \
+    pip3 install --upgrade pip  && \
+    pip3 install hs_restclient  && \
+    pip3 install simpledbf  && \
+    pip3 install wget  && \
+    pip3 install pandas
+
 
 # create user with a home directory
 ARG NB_USER
